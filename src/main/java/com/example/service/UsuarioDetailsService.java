@@ -37,7 +37,7 @@ public class UsuarioDetailsService implements UserDetailsService {
         if (usuario == null) {
             throw new UsernameNotFoundException("Username o Password incorrecto");
         }
-        return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
+        return new User(usuario.getUsername(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol> roles) {
