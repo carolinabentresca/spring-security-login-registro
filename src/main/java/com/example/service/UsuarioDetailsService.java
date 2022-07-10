@@ -35,7 +35,7 @@ public class UsuarioDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = repository.findByUsername(username);
         if (usuario == null) {
-            throw new UsernameNotFoundException("Usuario o Password incorrecto");
+            throw new UsernameNotFoundException("Username o Password incorrecto");
         }
         return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
     }
